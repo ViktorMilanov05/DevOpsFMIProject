@@ -2,6 +2,7 @@
   "name": "node-express-app",
   "description": "A super simple web app with Node.js and the Express web framework",
   "version": "1.0.0",
+  "type": "module",
   "author": "Denise Case",
   "bugs": {
     "url": "https://github.com/denisecase/node-express-app/issues"
@@ -15,6 +16,9 @@
     "helmet": "6.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
     "nodemon": "latest"
   },
   "homepage": "https://node-express-app-563.herokuapp.com/",
@@ -34,6 +38,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   }
 }
