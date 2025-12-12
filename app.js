@@ -1,7 +1,7 @@
 // require dependencies
-const config = require('config')     // for config variables
-const express = require('express')   // Express web framework
-const helmet = require('helmet')     // HTTP security
+import config from 'config';    // for config variables
+import express from 'express';   // Express web framework
+import helmet from 'helmet';    // HTTP security
 
 // create an Express app
 const app = express()
@@ -10,7 +10,6 @@ const app = express()
 app.use(helmet())
 
 // Use hosting values if available, otherwise default 
-const environment = process.env.NODE_ENV || 'development'
 const hostname = process.env.HOSTNAME || config.get("hostname")
 const port = process.env.PORT || config.get("port");
 
@@ -26,10 +25,8 @@ app.get('/', function (req, res) {
     '/greeting/yourname <br>' +
     '/yo/Dr.Rogers <br>' +
     '/fortune <br>' +
-    '/fancy/?first=Denise&last=Case <br>' +
-    '<br> <br>' +
-    'Fork the source code from <a href="https://github.com/denisecase/node-express-app">https://github.com/denisecase/node-express-app</a>'
-  )
+    '/fancy/?first=Denise&last=Case <br>'
+   )
 })
 
 // or use the new arrow function syntax
@@ -84,7 +81,7 @@ app.get('/fortune', (req,res) => {
 
 // Use middleware to handle all non-managed routes (e.g. /xyz)
 // https://expressjs.com/en/api.html#req.originalUrl
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).send(`status 404 - ${req.originalUrl} was not found`);
 })
 
@@ -106,7 +103,7 @@ app.listen(port, hostname, () => {
 
 function isEmpty(obj) {
   for(var key in obj) {
-      if(obj.hasOwnProperty(key))
+      if(Object.prototype.hasOwnProperty.call(obj, key))
           return false;
   }
   return true;
