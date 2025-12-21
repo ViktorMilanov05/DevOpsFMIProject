@@ -1,0 +1,12 @@
+.vscode
+node_modules
+tests
+eslint.config.mjs
+jest.config.cjs
+.git
+.gitignore
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+LICENSE
+README.md
