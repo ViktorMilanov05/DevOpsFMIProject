@@ -31,6 +31,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@4b4d7634dab97dcee0b75763a54a6dc92a9e6bc1
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_SCANNER_OPTS: "-Dsonar.nodejs.executable=$(which node)"
 
       - name: Build Docker image
         run: docker build -t node-express-app:ci .
