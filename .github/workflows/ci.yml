@@ -27,5 +27,10 @@ jobs:
       - name: Run unit tests
         run: npm test
 
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Build Docker image
         run: docker build -t node-express-app:ci .
