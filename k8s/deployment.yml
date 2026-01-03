@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsfmi-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devopsfmi-app
+  template:
+    metadata:
+      labels:
+        app: devopsfmi-app
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/viktormilanov05/devopsfmiproject:latest
+          ports:
+            - containerPort: 3000
