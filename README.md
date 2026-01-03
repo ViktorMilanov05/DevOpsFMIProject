@@ -168,9 +168,13 @@ Prerequisites:
 
 Steps:
 
-```bash
+1. Go to your folder with the .yml files
 
-kubectl apply -f deployment.yaml
+2. Run these commands
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
 
-kubectl apply -f service.yaml
+3. The app should be run on http://localhost:30007/
+
+
 
