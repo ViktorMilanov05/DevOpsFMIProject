@@ -12,8 +12,16 @@ spec:
       labels:
         app: devopsfmi-app
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: app
           image: ghcr.io/viktormilanov05/devopsfmiproject:latest
           ports:
             - containerPort: 3000
+          resources:
+           requests:
+             memory: "128Mi"
+             cpu: "100m"
+           limits:
+             memory: "256Mi"
+             cpu: "250m"
